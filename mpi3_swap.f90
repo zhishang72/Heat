@@ -13,8 +13,8 @@ subroutine mpi3_swap(a)
 use commons 
     real, dimension(1-xhalo:nxp+xhalo,1-yhalo:nyp+yhalo) :: a    
     integer, dimension(4) :: counts
-    TYPE(mpi_datatype), dimension(4) :: types
-    TYPE(mpi_datatype) :: bot_type, top_type, west_type, east_type 
+    type(mpi_datatype), dimension(4) :: types
+    type(mpi_datatype) :: bot_type, top_type, west_type, east_type 
     integer(kind=mpi_address_kind), dimension(4) :: sdispls, rdispls    
     
     call mpi_type_vector_f08(nyp,1,(nxp+2*xhalo),mpi_real,west_type,mpi_err)
